@@ -1,0 +1,23 @@
+{{/*
+Name: contrail-helper.kubernetes_spec.get_entrypoint_init_container
+Description: Template for entrypoint init container to check the dependency
+Arguements:
+  1. context
+  2. dependencies
+*/}}
+
+{{- define "contrail-helper.kubernetes_spec.resource_limit" -}}
+
+{{- $context := index . 0 -}}
+{{- $resource := index . 1 -}}
+
+{{- $resource_request := $resource.requests -}}
+{{- $resource_limit := $resource.limits -}}
+resources:
+  requests:
+    memory: {{ $resource.requests.memory }}
+    cpu: {{ $resource.requests.cpu }}
+  limits:
+    memory: {{ $resource.limits.memory }}
+    cpu: {{ $resource.limits.cpu }}
+{{- end -}}

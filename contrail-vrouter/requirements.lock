@@ -1,0 +1,6 @@
+dependencies:
+- name: contrail-helper
+  repository: http://localhost:8879/charts
+  version: 0.1.0
+digest: sha256:370a1c64706329e912abeccc6bbb2652fcf31d6d77f072709f1840d77eb130a2
+generated: 2018-01-16T22:24:49.98272877Z
