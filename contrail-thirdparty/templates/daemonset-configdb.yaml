@@ -31,6 +31,7 @@ spec:
       - name: contrail-configdb
         image: {{ .Values.images.tags.cassandra | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.configdb | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: contrail-configdb

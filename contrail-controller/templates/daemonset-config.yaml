@@ -32,6 +32,7 @@ spec:
       - name: contrail-config-api
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.config_api .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.api | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
@@ -42,6 +43,7 @@ spec:
       - name: contrail-devicemgr
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.config_devicemgr .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.devicemgr | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
@@ -52,6 +54,7 @@ spec:
       - name: contrail-schema-transformer
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.config_schema_transformer .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.schematransformer | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
@@ -62,6 +65,7 @@ spec:
       - name: contrail-svcmonitor
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.config_svcmonitor .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.svcmonitor | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
@@ -72,6 +76,7 @@ spec:
       - name: contrail-config-nodemgr
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.nodemgr .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.confignodemgr | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller

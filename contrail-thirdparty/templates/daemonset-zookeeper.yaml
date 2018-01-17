@@ -31,6 +31,7 @@ spec:
       - name: zookeeper
         image: {{ .Values.images.tags.zookeeper | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.zookeeper | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         volumeMounts:
         - mountPath: /var/lib/zookeeper
           name: zookeeper-config-data

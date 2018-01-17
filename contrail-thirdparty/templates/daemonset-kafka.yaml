@@ -31,6 +31,7 @@ spec:
       - name: kafka
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.kafka .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.kafka | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         env:
         - name: CONTROLLER_NODES
           value: {{ .Values.conf.controller_nodes | quote }}

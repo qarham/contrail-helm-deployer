@@ -31,4 +31,5 @@ spec:
       - name: redis
         image: {{ .Values.images.tags.redis | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.redis | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
 {{- end }}

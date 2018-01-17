@@ -31,6 +31,7 @@ spec:
       - name: contrail-webui-job
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.webui_job .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.webuijob | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
@@ -39,6 +40,7 @@ spec:
       - name: contrail-webui-web
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.webui_web .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.webuiweb | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-controller
