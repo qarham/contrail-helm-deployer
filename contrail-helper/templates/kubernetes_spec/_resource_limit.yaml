@@ -1,6 +1,6 @@
 {{/*
-Name: contrail-helper.kubernetes_spec.get_entrypoint_init_container
-Description: Template for entrypoint init container to check the dependency
+Name: contrail-helper.kubernetes_spec.get_resource_limit
+Description: Template for Contrail containers resources definition
 Arguements:
   1. context
   2. dependencies
