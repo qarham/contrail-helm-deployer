@@ -1,7 +1,0 @@
-[debug] Created tunnel using local port: '43958'
-
-[debug] SERVER: "localhost:43958"
-
-[debug] Original chart version: ""
-[debug] CHART PATH: /var/tmp/contrail-helm-deployer/contrail-analytics
-

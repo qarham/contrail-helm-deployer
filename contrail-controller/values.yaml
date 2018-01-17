@@ -79,6 +79,18 @@ endpoints:
       api: 80
     protocol: http
 
+# Containers Resources definition
+containers:
+  resources:
+    enabled: false
+    api:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "1024Mi"
+        cpu: "2000m"
+
 manifests:
   configmap_env: true
   daemonset_config: true

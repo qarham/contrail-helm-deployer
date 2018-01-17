@@ -1,5 +1,6 @@
 {{- if .Values.manifests.daemonset_config }}
 {{- $context := . }}
+
 ---
 apiVersion: extensions/v1beta1
 kind: DaemonSet

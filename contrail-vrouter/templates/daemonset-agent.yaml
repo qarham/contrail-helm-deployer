@@ -48,6 +48,7 @@ spec:
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
         securityContext:
           privileged: true
+{{ tuple $context .Values.containers.resources.agent | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-vrouter
@@ -66,6 +67,7 @@ spec:
       - name: contrail-agent-nodemgr
         image: {{ printf "%s/%s:%s" .Values.images.tags.registry .Values.images.tags.nodemgr .Values.images.tags.contrail_version | quote }}
         imagePullPolicy: {{ default "" .Values.images.imagePullPolicy | quote }}
+{{ tuple $context .Values.containers.resources.agentnodemgr | include "contrail-helper.kubernetes_spec.resource_limit" | indent 8 }}
         envFrom:
         - configMapRef:
             name: configmap-vrouter
