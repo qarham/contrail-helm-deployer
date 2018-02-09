@@ -1,7 +1,7 @@
 # How to access Contrail Analytics and Config APIs in OSH Cluster?
 
 
-OpenStack Helm supports Fernet tokens for OpenStack Keystone. Please check OSH fernet token support for keystone blueprint URL in reference section for more detail.
+OpenStack Helm supports Fernet token for OpenStack Keystone. Please check OSH fernet token support for keystone blueprint URL in reference section for more detail.
 
 ### Steps to get the token and use with Analytics API:
 
